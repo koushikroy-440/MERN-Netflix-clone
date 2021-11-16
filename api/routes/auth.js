@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
         // sent user data except password
         const { password, ...info } = user._doc;
 
-        res.status(200).json(info);
+        res.status(200).json({ ...info, accessToken });
     } catch (err) {
         console.log(err);
     }

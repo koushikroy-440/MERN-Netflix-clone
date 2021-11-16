@@ -6,6 +6,7 @@ dotenv.config();
 
 // routers
 const authRouter = require('./routes/auth');
+const userRoute = require('./routes/users');
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use(express.json());
 //middlware
 app.use('/api/auth', authRouter);
+app.use('/api/users', userRoute);
 
 app.listen(8800, () => {
     console.log("backend server is running!");
