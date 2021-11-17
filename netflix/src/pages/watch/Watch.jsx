@@ -1,7 +1,7 @@
 import './Watch.scss';
 import { ArrowBackOutlined } from "@material-ui/icons";
 
-export const Watch = () => {
+const Watch = () => {
     return (
         <div>
             <div className="watch">
@@ -20,3 +20,5 @@ export const Watch = () => {
         </div>
     );
 }
+
+export default Watch;

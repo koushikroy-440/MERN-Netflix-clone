@@ -11,6 +11,9 @@ const ListSchema = new Schema({
     },
     genre: {
         type: String,
+    },
+    content: {
+        type: Array
     }
 }, { timestamps: true });
 

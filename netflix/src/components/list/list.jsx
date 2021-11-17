@@ -4,7 +4,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Listitem } from '../ListItem/Listitem';
 import{ useRef,useState } from 'react';
   
-export const List = () => {
+export const List = ({list}) => {
     const [isMoved, setIsMoved] = useState(false);
     const [slideNumber, setSlideNumber] = useState(0);
   
@@ -24,7 +24,7 @@ export const List = () => {
     };
     return (
       <div className="list">
-        <span className="listTitle">Continue to watch</span>
+        <span className="listTitle">{list.title}</span>
         <div className="wrapper">
           <ArrowBackIcon
             className="sliderArrow left"
@@ -32,16 +32,11 @@ export const List = () => {
             style={{ display: !isMoved && "none" }}
           />
           <div className="container" ref={listRef}>
-            <Listitem index={0} />
-            <Listitem index={1} />
-            <Listitem index={2} />
-            <Listitem index={3} />
-            <Listitem index={4} />
-            <Listitem index={5} />
-            <Listitem index={6} />
-            <Listitem index={7} />
-            <Listitem index={8} />
-            <Listitem index={9} />
+            {
+              list.content.map((item,i)=>(
+                <Listitem index={i} item={item} />
+              ))
+            }
           </div>
           <ArrowForwardIcon
             className="sliderArrow right"
