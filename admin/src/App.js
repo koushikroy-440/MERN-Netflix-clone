@@ -14,26 +14,31 @@ import { NewUser } from "./pages/newUser/NewUser";
 import { ProductList } from "./pages/productList/productList";
 import { Product } from "./pages/product/product";
 import { NewProduct } from "./pages/newProduct/NewProduct";
+import Login from "./pages/login/Login";
+
 function App() {
+
   return (
-    <>
-      <Router>
+
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login />} />
         <Topbar />
         <div className="container">
           <Sidebar />
-          <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/users' element={<UserList />} />
-            <Route exact path='/user/:userId' element={<User />} />
-            <Route exact path='/newUser' element={<NewUser />} />
+          <Route exact path='/' element={<Home />} />
 
-            <Route exact path='/products' element={<ProductList />} />
-            <Route exact path='/product/:productId' element={<Product />} />
-            <Route exact path='/newproduct' element={<NewProduct />} />
-          </Routes>
+          <Route exact path='/users' element={<UserList />} />
+          <Route exact path='/user/:userId' element={<User />} />
+          <Route exact path='/newUser' element={<NewUser />} />
+          <Route exact path='/movies' element={<ProductList />} />
+          <Route exact path='/product/:productId' element={<Product />} />
+          <Route exact path='/newproduct' element={<NewProduct />} />
         </div>
-      </Router>
-    </>
+
+      </Routes>
+    </Router>
+
   );
 }
 
