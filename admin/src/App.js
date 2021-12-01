@@ -1,44 +1,46 @@
-import { Sidebar } from "./component/sidebar/Sidebar";
-import { Topbar } from "./component/topbar/Topbar";
-import './App.css';
-import { Home } from "./pages/home/Home";
-import { UserList } from "./pages/userList/userList";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-
-} from "react-router-dom";
-import { User } from "./pages/user/User";
-import { NewUser } from "./pages/newUser/NewUser";
-import { ProductList } from "./pages/productList/productList";
-import { Product } from "./pages/product/product";
-import { NewProduct } from "./pages/newProduct/NewProduct";
-import Login from "./pages/login/Login";
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
+import "./App.css";
+import Home from "./pages/home/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UserList from "./pages/userList/UserList";
+import User from "./pages/user/User";
+import NewUser from "./pages/newUser/NewUser";
+import ProductList from "./pages/productList/ProductList";
+import Product from "./pages/product/Product";
+import NewProduct from "./pages/newProduct/NewProduct";
 
 function App() {
-
   return (
-
     <Router>
-      <Routes>
-        <Route path='/login' element={<Login />} />
-        <Topbar />
-        <div className="container">
-          <Sidebar />
-          <Route exact path='/' element={<Home />} />
-
-          <Route exact path='/users' element={<UserList />} />
-          <Route exact path='/user/:userId' element={<User />} />
-          <Route exact path='/newUser' element={<NewUser />} />
-          <Route exact path='/movies' element={<ProductList />} />
-          <Route exact path='/product/:productId' element={<Product />} />
-          <Route exact path='/newproduct' element={<NewProduct />} />
-        </div>
-
-      </Routes>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/users">
+            <UserList />
+          </Route>
+          <Route path="/user/:userId">
+            <User />
+          </Route>
+          <Route path="/newUser">
+            <NewUser />
+          </Route>
+          <Route path="/products">
+            <ProductList />
+          </Route>
+          <Route path="/product/:productId">
+            <Product />
+          </Route>
+          <Route path="/newproduct">
+            <NewProduct />
+          </Route>
+        </Switch>
+      </div>
     </Router>
-
   );
 }
 

@@ -4,8 +4,9 @@ import { DeleteOutline } from "@material-ui/icons";
 import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-export const ProductList = () => {
-      const [data, setData] = useState(productRows);
+
+export default function ProductList() {
+  const [data, setData] = useState(productRows);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));

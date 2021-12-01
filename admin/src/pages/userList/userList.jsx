@@ -5,7 +5,7 @@ import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export const UserList = () => {
+export default function UserList() {
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -70,7 +70,3 @@ export const UserList = () => {
     </div>
   );
 }
-
-
-
-
