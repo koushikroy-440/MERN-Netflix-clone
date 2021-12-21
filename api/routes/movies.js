@@ -31,17 +31,17 @@ router.put('/:id', verify, async (req, res) => {
     }
 });
 
-//DELETE MOVIES FROM
-router.delete('/:id', verify, async (req, res) => {
+//DELETE MOVIE
+router.delete("/:id", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {
-            await Movie.findByIdAndDelete(req.params.body);
-            res.status(200).json('movie has been deleted.....');
+            await Movie.findByIdAndDelete(req.params.id);
+            res.status(200).json("The movie has been deleted...");
         } catch (err) {
-            res.status(500).json('Movie hasbeen deleted successfully');
+            res.status(500).json(err);
         }
     } else {
-        return res.json(403).json('you are not allowed ');
+        res.status(403).json("You are not allowed!");
     }
 });
 
