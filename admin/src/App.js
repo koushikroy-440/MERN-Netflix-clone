@@ -10,6 +10,7 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import ListList from "./pages/listList/ListList";
 import { useContext } from 'react';
 import { AuthContext } from "./context/authContext/AuthContext";
 import { Redirect } from "react-router-dom";
@@ -49,6 +50,9 @@ function App() {
               </Route>
               <Route path="/newproduct">
                 <NewProduct />
+              </Route>
+              <Route path="/list">
+                <ListList />
               </Route>
             </div>
           </>
